@@ -1,24 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Installing
+Run bundle install.
+Create Postgres DB & update database.yml files.
 
-Things you may want to cover:
+Create an env.yaml file with the following private config info:
+GUNSLINGERER_DATABASE_PASSWORD
+MARVEL_PUBLIC_KEY,
+MARVEL_PRIVATE_KEY,
+CREDLY_AUTH_TOKEN,
+CREDLY_ORGANIZATION_ID,
 
-* Ruby version
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Uses RSpec for test. To set up:
+rspec --init
+brew cask install chromedriver
