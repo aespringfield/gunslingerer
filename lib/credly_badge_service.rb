@@ -1,6 +1,6 @@
 module CredlyBadgeService
     CREDLY_BASE_URL = 'https://sandbox-api.youracclaim.com/v1'
-  
+
     def self.get_badge_templates(
       organization_id: ENV['CREDLY_ORGANIZATION_ID'],
       auth_token: ENV['CREDLY_AUTH_TOKEN'],
@@ -12,10 +12,43 @@ module CredlyBadgeService
           req.params[key.to_s] = value
         end
       end
+
+      JSON.parse(response.body)['data']
+    end
+
+    def self.get_badge_template(
+      badge:,
+      organization_id: ENV['CREDLY_ORGANIZATION_ID'],
+      auth_token: ENV['CREDLY_AUTH_TOKEN']
+    )
+      path = "organizations/#{organization_id}/badge_templates/#{badge.badge_template_id}"
+      response = faraday_connection(auth_token).get(path)
+
+      JSON.parse(response.body)['data']
+    end
+
+    def self.get_badge(
+      gunslinger:,
+      organization_id: ENV['CREDLY_ORGANIZATION_ID'],
+      auth_token: ENV['CREDLY_AUTH_TOKEN'],
+      **opts
+    )
+      path = "organizations/#{organization_id}/badges"
+      params = opts.symbolize_keys
+      filters = ["issuer_earner_id::#{gunslinger.id}"]
+      filters << params[:filter] unless params[:filter].nil?
+      params[:filter] = filters.join('|')
+
+      response = faraday_connection(auth_token).get(path) do |req|
+        params.each do |key, value|
+          req.params[key.to_s] = value
+        end
+      end
+
       JSON.parse(response.body)
     end
 
-    def self.post_badges(
+    def self.post_badge(
       gunslinger:,
       badge_template_id:,
       organization_id: ENV['CREDLY_ORGANIZATION_ID'],
@@ -32,7 +65,7 @@ module CredlyBadgeService
         issued_at: Time.now,
         **opts
       }
-      response = faraday_connection(auth_token).post(path) do |req|
+      faraday_connection(auth_token).post(path) do |req|
         req.body = body.to_json
       end
     end
@@ -40,9 +73,10 @@ module CredlyBadgeService
     private
     
     def self.faraday_connection(auth_token)
+        encoded_auth = Base64.encode64("#{auth_token}:") 
         Faraday.new(
           url: CREDLY_BASE_URL,
-          headers: { 'Authorization' => Base64.encode64(auth_token) }
+          headers: { 'Authorization' => "Basic #{encoded_auth}" }
         )
     end
 end

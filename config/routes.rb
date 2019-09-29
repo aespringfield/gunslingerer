@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   root to: "gunslingers#index"
 
   resources :gunslingers
+  resources :badge_templates
+  resources :recruits
 end

@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-describe 'user creates new gunslinger', type: :feature do
+describe 'user awards badge', type: :feature do
   it 'while not logged in' do
-    visit new_gunslinger_path
+    visit new_badge_path
     expect(page).to have_current_path(new_user_session_path)
     expect(page).to have_content('You need to sign in or sign up before continuing')
   end
@@ -12,7 +12,9 @@ describe 'user creates new gunslinger', type: :feature do
     gunslinger = build :gunslinger
     
     log_in(user)
-    visit new_gunslinger_path
+    visit new_badge_path
+    click_badge()
+
     fill_in 'First name', with: gunslinger.first_name
     fill_in 'Last name', with: gunslinger.last_name
     fill_in 'Email', with: gunslinger.email

@@ -1,6 +1,15 @@
-<div>
+
     <h1>Dashboard</h1>
-    <% names.each do |name| %>
-        <%= link_to name, new_gunslinger_path(name: name) %>
-    <% end %>
-</div>
+        <%= link_to 'Recruit new a new gunslinger', recruits_path %>
+    <ul>
+        <% gunslingers.each do |gunslinger| %>
+            <li>
+                <h2>
+                    <%= "#{gunslinger.first_name} #{gunslinger.last_name}" %>
+                </h2>
+                <% unless badge_image_url(gunslinger).nil? %>
+                    <%= image_tag badge_image_url(gunslinger) %>
+                <% end %>
+            </li>
+        <% end %>
+    </ul>

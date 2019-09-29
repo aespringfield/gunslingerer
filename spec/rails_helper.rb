@@ -1,5 +1,6 @@
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
+require 'active_support/testing/time_helpers'
 require 'spec_helper'
 require 'capybara/rails'
 require 'capybara/rspec'
@@ -14,6 +15,7 @@ ActiveRecord::Migration.maintain_test_schema!
 RSpec.configure do |config|
     config.include Rails.application.routes.url_helpers
     config.include FactoryBot::Syntax::Methods
+    config.include ActiveSupport::Testing::TimeHelpers
     config.include FeatureSpecHelper
     
     config.before(:each) do
