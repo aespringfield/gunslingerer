@@ -14,7 +14,7 @@ describe 'user signs in', type: :feature do
     fill_in 'Password confirmation', with: user.password
     click_button 'Sign up'
     expect(page).to have_content 'You have signed up successfully'
-    expect(page).to have_content 'Dashboard'
+    expect(page).to have_content 'Gunslingers'
 
     # Now check that these credentials are valid for sign in
     click_link 'Log out'
@@ -23,12 +23,12 @@ describe 'user signs in', type: :feature do
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
     click_button 'Log in'
-    expect(page).to have_content 'Dashboard'
+    expect(page).to have_content 'Gunslingers'
   end
 
   it 'as an existing user' do
     user = create :user
     log_in(user)
-    expect(page).to have_content 'Dashboard'
+    expect(page).to have_content 'Gunslingers'
   end
 end

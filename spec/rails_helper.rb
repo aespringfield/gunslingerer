@@ -9,8 +9,9 @@ require 'webmock/rspec'
 Dir[File.expand_path('../support/*.rb', __FILE__)].each { |path| require path }
 Dir[File.expand_path('../factories/*.rb', __FILE__)].each { |path| require path }
 
-Capybara.default_driver = :selenium_chrome_headless
 ActiveRecord::Migration.maintain_test_schema!
+Capybara.default_driver = :selenium_chrome_headless
+WebMock.allow_net_connect!
 
 RSpec.configure do |config|
     config.include Rails.application.routes.url_helpers

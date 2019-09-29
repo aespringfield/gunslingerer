@@ -1,0 +1,9 @@
+<h1>Recruits</h1>
+<ul class="recruits-list">
+    <% recruits.each do |recruit| %>
+        <li class="recruits-list-item">
+            <h2><%= link_to recruit['name'], badge_templates_path(gunslinger_name: recruit['name']) %></h2>
+            <p><%= recruit['description']%></p>
+        </li>
+    <% end %>
+</ul>

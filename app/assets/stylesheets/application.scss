@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.button-link, input[type="submit"] {
+    background-color: purple;
+    color: white;
+    padding: 1em 1.5em;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+
+    &:hover {
+        background-color: #555;
+    }
+
+    &:active {
+        background-color: black;
+    }
+}
+  
+.log-out {
+    float: right;
+}
+
+.call-to-action {
+    width: 200px;
+    font-size: 20px;
+    margin: 40px;
+}
+
+.main-container {
+    padding: 40px 60px;
+}
+
+.recruits-list-item, .gunslingers-list-item {
+    margin: 40px 0px;
+    list-style-type: none;
+
+    a {
+        text-decoration: none;
+        color: #294f3f;
+    
+        &:hover {
+            color: #32a852;
+        }
+    }
+}
+
+h1 {
+    margin-left: 30px;
+    padding-bottom: 50px;
+}
+
+.badge-image.small {
+    max-width: 50px;
+    float: left;
+    padding-right: 20px;
+}
+
+.badge-image.large {
+    max-width: 200px;
+}
+
+.form-label {
+    font-size: 16px;
+    font-weight: normal;
+    display: block;
+    padding-top: 40px;
+}
+
+input[type="text"] {
+    width: 200px;
+    height: 20px;
+}
+
+input[type="submit"] {
+    margin-top: 40px;
+    display: block;
+}

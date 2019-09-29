@@ -1,15 +1,14 @@
-
-    <h1>Dashboard</h1>
-        <%= link_to 'Recruit new a new gunslinger', recruits_path %>
-    <ul>
-        <% gunslingers.each do |gunslinger| %>
-            <li>
-                <h2>
-                    <%= "#{gunslinger.first_name} #{gunslinger.last_name}" %>
-                </h2>
-                <% unless badge_image_url(gunslinger).nil? %>
-                    <%= image_tag badge_image_url(gunslinger) %>
-                <% end %>
-            </li>
-        <% end %>
-    </ul>
+<h1>Gunslingers</h1>
+    <%= link_to 'Recruit a new gunslinger', recruits_path, class: 'button-link call-to-action' %>
+<ul class="gunslingers-list">
+    <% gunslingers.each do |gunslinger| %>
+        <li class="gunslingers-list-item">
+            <% unless badge_image_url(gunslinger).nil? %>
+                <%= image_tag badge_image_url(gunslinger), class: "badge-image small"%>
+            <% end %>
+            <h2>
+                <%= "#{gunslinger.first_name} #{gunslinger.last_name}" %>
+            </h2>
+        </li>
+    <% end %>
+</ul>

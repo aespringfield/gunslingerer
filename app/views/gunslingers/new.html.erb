@@ -1,6 +1,10 @@
+<h1> Submit info for badging <h1>
 <%= form_with model: @gunslinger, url: '/gunslingers' do |form| %>
+    <%= form.label :first_name, "First name", class: 'form-label' %>
     <%= form.text_field :first_name, value: first_name %>
+    <%= form.label :last_name, "Last name", class: 'form-label' %>
     <%= form.text_field :last_name, value: last_name %>
+    <%= form.label :email, "Email", class: 'form-label' %>
     <%= form.text_field :email, value: default_email_address(first_name, last_name) %>
     <%= form.hidden_field :badge_template_id, value: badge_template['id'] %>
     <%= form.submit %>

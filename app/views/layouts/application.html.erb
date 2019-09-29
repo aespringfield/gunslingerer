@@ -10,9 +10,11 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= render 'layouts/primary_navigation' %>
-    <%= yield %>
+    <div class="main-container">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= render 'layouts/primary_navigation' %>
+      <%= yield %>
+    </div>
   </body>
 </html>

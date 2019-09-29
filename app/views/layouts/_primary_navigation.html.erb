@@ -1,5 +1,5 @@
 <nav role="navigation", aria-label="Main Navigation">
     <% if user_signed_in? %>
-        <%= link_to 'Log out', destroy_user_session_path, { method: :DELETE } %>
+        <%= link_to 'Log out', destroy_user_session_path, { method: :DELETE, class: "button-link log-out" } %>
     <% end %>
 </nav>

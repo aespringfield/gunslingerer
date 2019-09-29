@@ -1,0 +1,5 @@
+<h1>Select a badge</h1>
+<% badge_templates.each do |badge_template| %>
+    <%= image_tag badge_template['image_url'], class: 'badge-image large' %>
+    <%= link_to badge_template['name'], new_gunslinger_path(badge_template: badge_template, gunslinger_name: gunslinger_name), class: "button-link" %>
+<% end %>

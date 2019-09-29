@@ -8,6 +8,7 @@ class GunslingersController < ApplicationController
 
     def new
         first_name, last_name = params[:gunslinger_name].split(' ', 2)
+        last_name ||= '[No last name]'
         render 'new', locals: {
             first_name: first_name,
             last_name: last_name,
@@ -29,9 +30,7 @@ class GunslingersController < ApplicationController
         gunslinger = Gunslinger.new(gunslinger_params) 
 
         if gunslinger.save
-            debugger
             badge = Badge.create(gunslinger: gunslinger, badge_template_id: badge_params[:badge_template_id])
-            debugger
             flash[:notice] = 'Congratulations, you\'ve recruited a gunslinger'
             redirect_to gunslingers_path
         else
