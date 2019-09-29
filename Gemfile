@@ -63,3 +63,9 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise', '~> 4.7.1'
+
+gem "faraday", "~> 0.16.1"
+
+gem "factory_bot", "~> 5.1"
+
+gem "faker", "~> 2.4"
