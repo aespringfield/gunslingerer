@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  badge_template_id: 1
+  issued_at: 2019-09-28 15:34:19
+  gunslinger: one
+
+two:
+  badge_template_id: 1
+  issued_at: 2019-09-28 15:34:19
+  gunslinger: two

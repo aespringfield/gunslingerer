@@ -69,3 +69,7 @@ gem "faraday", "~> 0.16.1"
 gem "factory_bot", "~> 5.1"
 
 gem "faker", "~> 2.4"
+
+gem "webmock", "~> 3.7"
+
+gem "test-unit", "~> 3.3"

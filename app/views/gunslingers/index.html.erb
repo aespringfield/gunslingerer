@@ -1,0 +1,6 @@
+<div>
+    <h1>Dashboard</h1>
+    <% names.each do |name| %>
+        <%= link_to name, new_gunslinger_path(name: name) %>
+    <% end %>
+</div>
