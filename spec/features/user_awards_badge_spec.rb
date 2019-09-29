@@ -27,7 +27,7 @@ describe 'user awards badge', type: :feature do
     fill_in 'Last name', with: gunslinger.last_name
     fill_in 'Email', with: gunslinger.email
     click_button 'Save'
-    expect(page).to have_content('Gunslingers', wait: 5)
+    expect(page).to have_content('Gunslingers', wait: 10)
     expect(page).to have_content gunslinger.first_name
     expect(page).to have_content gunslinger.last_name
     expect(badge_images.length).to be 1
